@@ -27,6 +27,14 @@ public class Product {
 
     private Set<ImageModel> productImages ;
 
+    public Set<ImageModel> getProductImages() {
+        return productImages;
+    }
+
+    public void setProductImages(Set<ImageModel> productImages) {
+        this.productImages = productImages;
+    }
+
     public Integer getProductId() {
         return productId;
     }
