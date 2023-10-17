@@ -21,6 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AddProductComponent } from './add-product/add-product.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     LoginComponent,
     HeaderComponent,
     ForbiddenComponent,
-    AddProductComponent
+    AddProductComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   providers: [
     AuthGuard,
