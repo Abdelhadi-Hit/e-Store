@@ -45,14 +45,15 @@ export class AddProductComponent implements OnInit {
     const formData = new FormData();
     formData.append(
         'product',
-              new Blob(JSON.stringify(product),{type: 'appliation/json'})
+              new Blob([JSON.stringify(product)], {type: 'application/json'})
     );
 
-    for (var i=0; i < product.productImages.length;i++){
+
+    for (let i = 0; i < product.productImages.length; i++){
       formData.append(
           'imageFile',
-          product.productImages.file,
-          product.productImages.file.name );
+          product.productImages[i].file,
+          product.productImages[i].file.name );
     }
     return formData;
 
@@ -61,18 +62,24 @@ export class AddProductComponent implements OnInit {
 
   onFileSelected(event){
 
-    if(event.taret.files){
-      const file = event.target.files[0];
+    if (event.target.files){
+      const f = event.target.files[0];
 
-      const fileHandle : FileHandle = {
-        file : file,
+      const fileHandle: FileHandle = {
+        file: f,
         url: this.sanitizer.bypassSecurityTrustUrl(
-            window.URL.createObjectURL(file);
+            window.URL.createObjectURL(f)
         )
-      }
+      };
       this.product.productImages.push(fileHandle);
     }
 
   }
+  removeImages(index : number){
+    this.product.productImages.splice(index , 1);
+  }
+
+
+
 
 }
